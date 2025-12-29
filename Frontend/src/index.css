@@ -3,6 +3,10 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+/* ✅ REQUIRED for dark mode in Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 body {
-  font-family: 'poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
+

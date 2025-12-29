@@ -1,12 +1,11 @@
 import React from "react";
 
 const Cards = ({ item }) => {
-  console.log(item); // check full object
-  console.log(item?.price);
+  
   return (
     <>
       <div className="mt-4 my-3 p-3">
-        <div className="card bg-base-100 w-92 shadow-x1">
+        <div className="card bg-base-100 w-92 shadow-x1 hover:scale-105 duration-200 dark:bg-gray-900 dark:text-gray-100 dark:border dark:border-gray-700">
           <figure>
             <img src={item.image} alt="Book" />
           </figure>

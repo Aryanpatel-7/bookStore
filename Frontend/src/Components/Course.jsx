@@ -1,9 +1,11 @@
 import React from 'react'
-
+import list from "../../public/list.json";
+import Cards from "../Components/Cards";
+import {Link,} from "react-router-dom";
 const Course = () => {
   return (
   <>
-    <div className='max-w-screen-2x1 container mx-auto md:px-20 px-4'>
+    <div className='max-w-screen-2x1 container mx-auto md:px-20 px-4 dark:bg-gray-900 dark:text-gray-100'>
   <div className='mt-28 items-center justify-center text-center'>
     <h1 className='text-2x1  md:text-4xl'>
       We're delighted to have you{""}
@@ -14,7 +16,20 @@ const Course = () => {
        accusamus quam omnis itaque libero optio ut fugiat exercitationem, 
        ducimus enim incidunt, rem eum aliquid soluta magnam perferendis. 
        Reiciendis officiis eos commodi iure?</p>
-       <button className='mt-6 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-700 duration-300 cursor-pointer'>Back</button>
+
+     
+       <Link to="/" >
+        <button className='mt-6 bg-pink-500 text-white px-4 py-2 rounded-md hover:bg-pink-700 duration-300 cursor-pointer'>
+       Back</button>
+       </Link>
+       
+  </div>
+  <div className='mt-12 grid grid-cols-1 md:grid-cols-3'>
+
+    { list.map((item)=>(
+      <Cards key={item.id} item={item} />
+    )) }
+    
   </div>
     </div>
   </>

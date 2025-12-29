@@ -60,7 +60,7 @@
     "name":"Food Book",
     "title":"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
     "category":"Food",
-    "price":0,
+    "price":180,
     "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg"
   },
    {
@@ -75,14 +75,14 @@
     "id":10,
     "name":" rich dad poor dad Book",
     "title":"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
-    "category":" rich dad poor dad",
+    "category":" rich dad",
     "price":250,
     "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg"
   },
      { "id":11,
     "name":"Life's Amazing Secrets Book ",
     "title":"Lorem, ipsum dolor sit amet consectetur adipisicing elit.",
-    "category":"How to Find Balance and Purpose in Your Life",
+    "category":"Purpose",
     "price":350,
     "image":"https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149341898.jpg"
   }

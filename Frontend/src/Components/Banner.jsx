@@ -28,7 +28,8 @@ const Banner = () => {
       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
     </g>
   </svg>
-  <input type="email" placeholder="email" required />
+  <input type="email" placeholder="email" required
+  className="bg-transparent text-black dark:text-white dark:placeholder-gray-400" />
 </label>
   </div>
        <button className="btn mt-6 btn-secondary ">Secondary</button>
