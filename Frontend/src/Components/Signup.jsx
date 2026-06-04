@@ -1,40 +1,61 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import Login from './Login';
-
+import { useForm } from "react-hook-form"
 const Signup = () => {
+  const {
+      register,
+      handleSubmit,
+      formState: { errors },
+    } = useForm()
+  
+    const onSubmit = (data) => console.log(data)
   return (
  <>
     <div className='flex h-screen items-center justify-center  bg-opacity-40'>
         <div className="border-2 w-[450px] border-white shadow-xl rounded-lg p-6 relative bg-white">
   <div className="">
-    <form method="dialog">
+    <form onSubmit={handleSubmit(onSubmit)} method="dialog">
       {/* if there is a button in form, it will close the modal */}
       <Link to="/" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
       ✕
       </Link>
-    </form>
+   
     <h3 className="font-bold text-lg">Signup</h3>
 
     <div className='mt-4 space-y-2'>
       <span className='text-xl'>Name</span>
       <br />
       <input type='text' placeholder='Enter your fullname'
-        className='w-80 px-3 py-1 border rounded-md outline-none text-sm' />
+        className='w-80 px-3 py-1 border rounded-md outline-none text-sm'
+        {...register("name", { required: true })}
+         />
+         <br />
+          {errors.name && <span className='text-sm text-red-500'>This field is required</span>}
     </div>
+
      {/*email*/}
     <div className='mt-4 space-y-2'>
       <span className='text-xl'>Email</span>
       <br />
       <input type='email' placeholder='Enter your email'
-        className='w-80 px-3 py-1 border rounded-md outline-none text-sm' />
+        className='w-80 px-3 py-1 border rounded-md outline-none text-sm'
+         {...register("email", { required: true })}
+          />
+          <br />
+          {errors.email && <span className='text-sm text-red-500'>This field is required</span>}
     </div>
+
     {/*password */}
      <div className='mt-4 space-y-2'>
       <span className='text-xl'>Password</span>
       <br />
       <input type='text' placeholder='Enter your password'
-        className='w-80 px-3 py-1 border rounded-md outline-none text-sm' />
+        className='w-80 px-3 py-1 border rounded-md outline-none text-sm'
+        {...register("password", { required: true })}
+         />
+         <br />
+                   {errors.password && <span className='text-sm text-red-500'>This field is required</span>}
     </div>
     {/*Button */}
     <div className='flex justify-around mt-4'>
@@ -48,6 +69,7 @@ const Signup = () => {
        <Login />
         </p>
     </div>
+     </form>
   </div>
 </div>
 
