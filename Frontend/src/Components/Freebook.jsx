@@ -14,9 +14,8 @@ const Freebook = () => {
     const getBook=async()=>{
       try{
      const res = await axios.get("http://localhost:4001/book");
-     console.log(res.data);
-     setBook(res.data.filter((data) => data.category === "Free"));
-
+     const data = res.data.filter((data) => data.category === "Free");
+      console.log(data);
       } catch(error){
         console.log(error);
       }
@@ -67,10 +66,11 @@ const Freebook = () => {
       <p className="text-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Accusantium
        veritatis alias pariatur ad dolor eligendi corporis nulla non suscipit,iure neque
        earum?</p>
-       </div>
+       </div> 
+
     
     <div>
-        <Slider {...settings}>
+        <Slider {...settings}> 
        {book.map((item)=>(
         <Cards key={item.id} item={item} />
        ))}
@@ -79,6 +79,6 @@ const Freebook = () => {
     </div>
   </>
   )
-}
+} 
 
 export default Freebook;
