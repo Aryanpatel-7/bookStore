@@ -2,7 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useForm } from "react-hook-form"
 import axios from 'axios'
+import toast from "react-hot-toast";
+import { useAuth } from "../Context/AuthProvider";
 const Login = () => {
+  const [authUser, setAuthUser] = useAuth();
   const {
     register,
     handleSubmit,
@@ -19,15 +22,19 @@ const Login = () => {
       await axios.post("http://localhost:4001/user/login", userInfo)
       .then((res) =>{
         console.log(res.data);
-        if(res.data){
-          alert("Logggedin successfully");
-        }
-        localStorage.setItem("users",JSON.stringify(res.data.user));
+       if (res.data) {
+  toast.success("Logged in successfully");
+
+  localStorage.setItem("users", JSON.stringify(res.data.user));
+  setAuthUser(res.data.user);
+
+  document.getElementById("my_modal_3").close();
+}
       })
       .catch((err) =>{
        if(err.response){
          console.log(err)
-        alert("Error:" + err.response.data.message);
+        toast.error("Error:" + err.response.data.message);
         
        }
       });
@@ -38,7 +45,9 @@ const Login = () => {
   <div className="modal-box">
     <form onSubmit={handleSubmit(onSubmit)} method="dialog">
       {/* if there is a button in form, it will close the modal */}
-      <Link to="/" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</Link>
+      <Link to="/" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+      onClick={() => document.getElementById("my_modal_3").close()}
+      >✕</Link>
     
 
     <h3 className="font-bold text-lg">Login</h3>
@@ -83,4 +92,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Login;
